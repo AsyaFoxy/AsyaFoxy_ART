@@ -7,8 +7,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #4a2a2a;
-    background: linear-gradient(135deg, #fff5e6 0%, #ffe6f0 50%, #fff0e0 100%);
+    color: #2d1b2d;
+    background: linear-gradient(135deg, #fff8f0 0%, #fff0e0 100%);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -16,7 +16,7 @@ body {
 
 /* Шапка сайта */
 header {
-    background: linear-gradient(135deg, #f5a623 0%, #f97316 30%, #c026d3 70%, #8b5cf6 100%);
+    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #9b4d96 100%);
     color: #fff;
     text-align: center;
     padding: 2rem 1rem;
@@ -137,7 +137,7 @@ main {
 
 .page-title h2 {
     font-size: 2.2rem;
-    color: #c026d3;
+    color: #9b4d96;
     margin: 0;
 }
 
@@ -152,9 +152,11 @@ main {
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(192, 38, 211, 0.15);
+    box-shadow: 0 10px 30px rgba(155, 77, 150, 0.15);
     transition: all 0.4s;
     border: 1px solid #ffd966;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -166,17 +168,22 @@ main {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    background: #f5f0e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-image img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     transition: transform 0.5s;
+    display: block;
 }
 
 .card:hover .card-image img {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .card-overlay {
@@ -216,7 +223,7 @@ main {
 .category h3 {
     font-size: 1.8rem;
     margin: 1.5rem 0 1.5rem;
-    color: #c026d3;
+    color: #9b4d96;
     border-bottom: 3px solid #f97316;
     padding-bottom: 0.5rem;
     display: inline-block;
@@ -224,7 +231,7 @@ main {
 
 /* Прайс-лист */
 .price-note {
-    background: linear-gradient(135deg, #fff0e0 0%, #ffe6f0 100%);
+    background: #fff8f0;
     border-left: 4px solid #f97316;
     padding: 1.2rem;
     margin-bottom: 2rem;
@@ -257,7 +264,7 @@ main {
 }
 
 .specialization span {
-    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #c026d3 100%);
+    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #9b4d96 100%);
     color: #fff;
     padding: 0.7rem 1.8rem;
     border-radius: 50px;
@@ -283,7 +290,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    color: #c026d3;
+    color: #9b4d96;
     background: rgba(249, 115, 22, 0.1);
     padding: 0.8rem;
     border-radius: 50px;
@@ -308,7 +315,7 @@ main {
 .price-category h3 {
     font-size: 1.4rem;
     margin: 1.8rem 0 1rem;
-    color: #c026d3;
+    color: #9b4d96;
     border-bottom: 2px solid #f97316;
     padding-bottom: 0.4rem;
     display: inline-block;
@@ -318,7 +325,7 @@ main {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
-    box-shadow: 0 4px 16px rgba(192, 38, 211, 0.1);
+    box-shadow: 0 4px 16px rgba(155, 77, 150, 0.1);
     margin-bottom: 1.5rem;
     border-radius: 16px;
     overflow: hidden;
@@ -337,17 +344,17 @@ main {
 }
 
 .price-table tr:nth-child(even) {
-    background: #fff5e6;
+    background: #fff8f0;
 }
 
 .price-table tr:hover {
-    background: #ffe6f0;
+    background: #fff0e0;
     transition: background 0.2s;
 }
 
 .background-table td:first-child {
     font-weight: 500;
-    background: #fff5e6;
+    background: #fff8f0;
 }
 
 /* Информационные блоки */
@@ -385,7 +392,7 @@ main {
 
 .info-block li {
     padding: 0.6rem 0;
-    border-bottom: 1px solid #ffe6f0;
+    border-bottom: 1px solid #fff0e0;
 }
 
 .info-block li:last-child {
@@ -406,13 +413,14 @@ main {
 }
 
 .payment-methods span {
-    background: linear-gradient(135deg, #fff0e0 0%, #ffe6f0 100%);
+    background: #fff8f0;
     padding: 0.6rem 1.3rem;
     border-radius: 30px;
     font-size: 0.9rem;
-    color: #c026d3;
+    color: #9b4d96;
     font-weight: 500;
     transition: all 0.3s;
+    border: 1px solid #ffd966;
 }
 
 .payment-methods span:hover {
@@ -436,7 +444,7 @@ main {
 }
 
 .welcome-block h3 {
-    color: #c026d3;
+    color: #9b4d96;
     margin-bottom: 1rem;
     font-size: 1.8rem;
 }
@@ -461,7 +469,7 @@ main {
 }
 
 .tools-list p {
-    background: linear-gradient(135deg, #fff0e0, #ffe6f0);
+    background: #fff8f0;
     padding: 0.8rem 1.5rem;
     border-radius: 20px;
     border: 1px solid #ffd966;
@@ -501,7 +509,7 @@ main {
 }
 
 .info-card h3 {
-    color: #c026d3;
+    color: #9b4d96;
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
@@ -522,12 +530,12 @@ main {
 }
 
 .info-link:hover {
-    color: #c026d3;
+    color: #9b4d96;
 }
 
 /* Стили для Minecraft страницы */
 .minecraft-info {
-    background: linear-gradient(135deg, #fff0e0 0%, #ffe6f0 100%);
+    background: #fff8f0;
     border: 1px solid #f97316;
 }
 
@@ -556,7 +564,7 @@ main {
 .tab-btn {
     background: rgba(249, 115, 22, 0.2);
     border: 2px solid #f97316;
-    color: #c026d3;
+    color: #9b4d96;
     padding: 0.8rem 2rem;
     border-radius: 50px;
     font-size: 1.1rem;
@@ -595,7 +603,7 @@ main {
 
 /* Подвал */
 footer {
-    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #c026d3 100%);
+    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #9b4d96 100%);
     color: #fff;
     text-align: center;
     padding: 1.5rem;
@@ -682,8 +690,9 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .card-image img {
-        height: 200px;
+  .card-image img {
+        height: auto;
+        width: 100%;
     }
     
     .price-table th, .price-table td {
