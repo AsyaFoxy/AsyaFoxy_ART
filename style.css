@@ -685,4 +685,78 @@ footer::before {
         padding: 0.4rem 1rem;
         font-size: 0.8rem;
     }
+    /* Первый блок как на главной */
+.price-note {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.8rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 24px rgba(107, 62, 143, 0.1);
+    border: 1px solid #e9d4ff;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.price-note .decor-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6b3e8f, #f5a623, #f97316, #6b3e8f, transparent);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.price-note p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #4a2a4a;
+}
+
+.price-note strong {
+    color: #f97316;
+}
+
+/* Ряд из трёх таблиц */
+.price-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+.price-row .price-category {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 0;
+}
+
+.price-category.full-width {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* Убираем лишние отступы у заголовков в ряду */
+.price-row .price-category h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 992px) {
+    .price-row {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .price-row {
+        flex-direction: column;
+    }
+    
+    .price-row .price-category {
+        width: 100%;
+    }
+}
 }
