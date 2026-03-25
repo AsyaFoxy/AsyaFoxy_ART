@@ -8,19 +8,34 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #2d1b2d;
-    background: linear-gradient(135deg, #fff8f0 0%, #fff0e0 100%);
+    background: linear-gradient(135deg, #faf5ff 0%, #f3eaff 100%);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+/* Декоративные элементы на фоне */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="rgba(155,77,150,0.1)"/><circle cx="85" cy="25" r="3" fill="rgba(155,77,150,0.1)"/><circle cx="45" cy="80" r="2" fill="rgba(155,77,150,0.1)"/><circle cx="70" cy="60" r="2" fill="rgba(155,77,150,0.1)"/><circle cx="20" cy="70" r="2" fill="rgba(155,77,150,0.1)"/><circle cx="90" cy="85" r="3" fill="rgba(155,77,150,0.1)"/><circle cx="5" cy="45" r="2" fill="rgba(155,77,150,0.1)"/><circle cx="60" cy="15" r="2" fill="rgba(155,77,150,0.1)"/></svg>');
+    background-repeat: repeat;
+    opacity: 0.4;
+    z-index: -1;
+}
+
 /* Шапка сайта */
 header {
-    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #9b4d96 100%);
+    background: linear-gradient(135deg, #6b3e8f 0%, #9b4d96 50%, #c26bc2 100%);
     color: #fff;
     text-align: center;
     padding: 2rem 1rem;
-    box-shadow: 0 4px 20px rgba(245, 166, 35, 0.3);
+    box-shadow: 0 4px 20px rgba(107, 62, 143, 0.4);
     position: relative;
     overflow: hidden;
 }
@@ -32,7 +47,7 @@ header::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,200,100,0.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255,255,200,0.15) 0%, transparent 70%);
     animation: rotate 20s linear infinite;
 }
 
@@ -51,6 +66,37 @@ header h1 {
     margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     letter-spacing: 2px;
+}
+
+/* Плавающие звёздочки */
+.floating-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-stars i {
+    position: absolute;
+    color: rgba(255,255,200,0.6);
+    font-size: 0.8rem;
+    animation: floatStar 8s linear infinite;
+}
+
+.floating-stars i:nth-child(1) { top: 20%; left: 10%; animation-duration: 10s; font-size: 0.6rem; }
+.floating-stars i:nth-child(2) { top: 60%; left: 85%; animation-duration: 12s; font-size: 0.7rem; }
+.floating-stars i:nth-child(3) { top: 30%; left: 95%; animation-duration: 9s; font-size: 0.5rem; }
+.floating-stars i:nth-child(4) { top: 80%; left: 15%; animation-duration: 14s; font-size: 0.9rem; }
+.floating-stars i:nth-child(5) { top: 15%; left: 50%; animation-duration: 11s; font-size: 0.6rem; }
+
+@keyframes floatStar {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-100px) rotate(180deg); opacity: 0; }
 }
 
 /* Навигация */
@@ -92,7 +138,7 @@ nav a {
     transition: all 0.3s;
     font-weight: 500;
     display: inline-block;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.2);
     backdrop-filter: blur(5px);
 }
 
@@ -101,15 +147,15 @@ nav a i {
 }
 
 nav a:hover, nav a.active {
-    background: #f97316;
+    background: #9b4d96;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.5);
+    box-shadow: 0 4px 12px rgba(155, 77, 150, 0.5);
 }
 
 /* Основной контент */
 main {
     flex: 1;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 2rem auto;
     padding: 0 1rem;
     width: 100%;
@@ -126,7 +172,7 @@ main {
 
 .page-title i {
     font-size: 1.8rem;
-    color: #f97316;
+    color: #9b4d96;
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -137,31 +183,32 @@ main {
 
 .page-title h2 {
     font-size: 2.2rem;
-    color: #9b4d96;
+    color: #6b3e8f;
     margin: 0;
 }
 
-/* Галерея */
+/* Галерея в стиле Pinterest (колонны) */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    column-count: 3;
+    column-gap: 1.5rem;
 }
 
 .card {
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(155, 77, 150, 0.15);
-    transition: all 0.4s;
-    border: 1px solid #ffd966;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(107, 62, 143, 0.15);
+    transition: all 0.3s;
+    border: 1px solid #e9d4ff;
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(249, 115, 22, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(155, 77, 150, 0.3);
 }
 
 .card-image {
@@ -169,17 +216,13 @@ main {
     overflow: hidden;
     cursor: pointer;
     background: #f5f0e8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .card-image img {
     width: 100%;
     height: auto;
-    object-fit: contain;
-    transition: transform 0.5s;
     display: block;
+    transition: transform 0.5s;
 }
 
 .card:hover .card-image img {
@@ -192,7 +235,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(245, 166, 35, 0.7);
+    background: rgba(155, 77, 150, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -215,6 +258,19 @@ main {
     transform: scale(1);
 }
 
+/* Адаптивность колонн */
+@media (max-width: 992px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery {
+        column-count: 1;
+    }
+}
+
 /* Категории */
 .category {
     margin-bottom: 3rem;
@@ -223,16 +279,16 @@ main {
 .category h3 {
     font-size: 1.8rem;
     margin: 1.5rem 0 1.5rem;
-    color: #9b4d96;
-    border-bottom: 3px solid #f97316;
+    color: #6b3e8f;
+    border-bottom: 3px solid #9b4d96;
     padding-bottom: 0.5rem;
     display: inline-block;
 }
 
 /* Прайс-лист */
 .price-note {
-    background: #fff8f0;
-    border-left: 4px solid #f97316;
+    background: linear-gradient(135deg, #f5eaff 0%, #f0e6ff 100%);
+    border-left: 4px solid #9b4d96;
     padding: 1.2rem;
     margin-bottom: 2rem;
     border-radius: 16px;
@@ -246,13 +302,13 @@ main {
 
 .price-note i {
     font-size: 1.5rem;
-    color: #f97316;
+    color: #9b4d96;
 }
 
 .price-note p {
     margin: 0;
     font-size: 1rem;
-    color: #4a2a2a;
+    color: #4a2a4a;
 }
 
 .specialization {
@@ -264,19 +320,19 @@ main {
 }
 
 .specialization span {
-    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #9b4d96 100%);
+    background: linear-gradient(135deg, #6b3e8f 0%, #9b4d96 100%);
     color: #fff;
     padding: 0.7rem 1.8rem;
     border-radius: 50px;
     font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+    box-shadow: 0 4px 12px rgba(107, 62, 143, 0.3);
     transition: all 0.3s;
     cursor: default;
 }
 
 .specialization span:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 6px 16px rgba(155, 77, 150, 0.4);
 }
 
 .specialization span i {
@@ -290,8 +346,8 @@ main {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    color: #9b4d96;
-    background: rgba(249, 115, 22, 0.1);
+    color: #6b3e8f;
+    background: rgba(155, 77, 150, 0.1);
     padding: 0.8rem;
     border-radius: 50px;
     width: fit-content;
@@ -301,7 +357,7 @@ main {
 
 .price-info i {
     font-size: 1.2rem;
-    color: #f97316;
+    color: #9b4d96;
 }
 
 .price-info p {
@@ -315,8 +371,8 @@ main {
 .price-category h3 {
     font-size: 1.4rem;
     margin: 1.8rem 0 1rem;
-    color: #9b4d96;
-    border-bottom: 2px solid #f97316;
+    color: #6b3e8f;
+    border-bottom: 2px solid #9b4d96;
     padding-bottom: 0.4rem;
     display: inline-block;
 }
@@ -325,36 +381,36 @@ main {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
-    box-shadow: 0 4px 16px rgba(155, 77, 150, 0.1);
+    box-shadow: 0 4px 16px rgba(107, 62, 143, 0.1);
     margin-bottom: 1.5rem;
     border-radius: 16px;
     overflow: hidden;
 }
 
 .price-table th, .price-table td {
-    border: 1px solid #ffd966;
+    border: 1px solid #e9d4ff;
     padding: 12px 16px;
     text-align: left;
 }
 
 .price-table th {
-    background: linear-gradient(135deg, #f5a623 0%, #f97316 100%);
+    background: linear-gradient(135deg, #6b3e8f 0%, #9b4d96 100%);
     color: #fff;
     font-weight: 600;
 }
 
 .price-table tr:nth-child(even) {
-    background: #fff8f0;
+    background: #faf5ff;
 }
 
 .price-table tr:hover {
-    background: #fff0e0;
+    background: #f0e6ff;
     transition: background 0.2s;
 }
 
 .background-table td:first-child {
     font-weight: 500;
-    background: #fff8f0;
+    background: #faf5ff;
 }
 
 /* Информационные блоки */
@@ -363,8 +419,8 @@ main {
     border-radius: 20px;
     padding: 1.8rem;
     margin: 2rem 0;
-    box-shadow: 0 8px 24px rgba(245, 166, 35, 0.1);
-    border: 1px solid #ffd966;
+    box-shadow: 0 8px 24px rgba(107, 62, 143, 0.1);
+    border: 1px solid #e9d4ff;
     transition: transform 0.3s;
 }
 
@@ -376,13 +432,13 @@ main {
     border-bottom: none;
     margin-top: 0;
     display: block;
-    color: #f97316;
+    color: #9b4d96;
     margin-bottom: 1rem;
 }
 
 .info-block h3 i {
     margin-right: 0.6rem;
-    color: #f5a623;
+    color: #6b3e8f;
 }
 
 .info-block ul {
@@ -392,7 +448,7 @@ main {
 
 .info-block li {
     padding: 0.6rem 0;
-    border-bottom: 1px solid #fff0e0;
+    border-bottom: 1px solid #f0e6ff;
 }
 
 .info-block li:last-child {
@@ -401,7 +457,7 @@ main {
 
 .info-block li i {
     margin-right: 0.8rem;
-    color: #f97316;
+    color: #9b4d96;
     width: 1.6rem;
 }
 
@@ -413,38 +469,58 @@ main {
 }
 
 .payment-methods span {
-    background: #fff8f0;
+    background: linear-gradient(135deg, #faf5ff 0%, #f0e6ff 100%);
     padding: 0.6rem 1.3rem;
     border-radius: 30px;
     font-size: 0.9rem;
-    color: #9b4d96;
+    color: #6b3e8f;
     font-weight: 500;
     transition: all 0.3s;
-    border: 1px solid #ffd966;
+    border: 1px solid #e9d4ff;
 }
 
 .payment-methods span:hover {
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.2);
+    box-shadow: 0 2px 8px rgba(155, 77, 150, 0.2);
 }
 
 .payment-methods span i {
     margin-right: 0.5rem;
-    color: #f97316;
+    color: #9b4d96;
 }
 
 /* Стили для лобби */
 .welcome-block {
     text-align: center;
     margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.welcome-block i {
-    display: none;
+.welcome-block::before {
+    content: '✦';
+    font-size: 8rem;
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    color: rgba(155, 77, 150, 0.05);
+    font-family: monospace;
+    transform: rotate(-15deg);
+}
+
+.welcome-block::after {
+    content: '✦';
+    font-size: 8rem;
+    position: absolute;
+    bottom: -40px;
+    right: -30px;
+    color: rgba(155, 77, 150, 0.05);
+    font-family: monospace;
+    transform: rotate(15deg);
 }
 
 .welcome-block h3 {
-    color: #9b4d96;
+    color: #6b3e8f;
     margin-bottom: 1rem;
     font-size: 1.8rem;
 }
@@ -454,6 +530,8 @@ main {
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
 .tools-block {
@@ -469,16 +547,16 @@ main {
 }
 
 .tools-list p {
-    background: #fff8f0;
+    background: linear-gradient(135deg, #faf5ff 0%, #f0e6ff 100%);
     padding: 0.8rem 1.5rem;
     border-radius: 20px;
-    border: 1px solid #ffd966;
+    border: 1px solid #e9d4ff;
     font-size: 1rem;
 }
 
 .tools-list i {
     margin-right: 0.5rem;
-    color: #f97316;
+    color: #9b4d96;
 }
 
 .info-grid {
@@ -493,63 +571,76 @@ main {
     border-radius: 20px;
     padding: 1.5rem;
     text-align: center;
-    transition: transform 0.3s;
-    border: 1px solid #ffd966;
-    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.1);
+    transition: all 0.3s;
+    border: 1px solid #e9d4ff;
+    box-shadow: 0 4px 12px rgba(107, 62, 143, 0.1);
+    position: relative;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6b3e8f, #9b4d96, #c26bc2);
+    border-radius: 20px 20px 0 0;
 }
 
 .info-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(107, 62, 143, 0.2);
 }
 
 .info-card i {
     font-size: 2rem;
-    color: #f97316;
+    color: #9b4d96;
     margin-bottom: 1rem;
 }
 
 .info-card h3 {
-    color: #9b4d96;
+    color: #6b3e8f;
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
 
 .info-card p {
     font-size: 0.9rem;
-    color: #4a2a2a;
+    color: #4a2a4a;
     margin-bottom: 1rem;
     line-height: 1.5;
 }
 
 .info-link {
     display: inline-block;
-    color: #f97316;
+    color: #9b4d96;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .info-link:hover {
-    color: #9b4d96;
+    color: #6b3e8f;
 }
 
 /* Стили для Minecraft страницы */
 .minecraft-info {
-    background: #fff8f0;
-    border: 1px solid #f97316;
+    background: linear-gradient(135deg, #faf5ff 0%, #f0e6ff 100%);
+    border: 1px solid #9b4d96;
 }
 
 .minecraft-info h3 {
-    color: #f97316;
+    color: #9b4d96;
 }
 
 .minecraft-info li {
-    color: #4a2a2a;
-    border-bottom-color: #ffd966;
+    color: #4a2a4a;
+    border-bottom-color: #e9d4ff;
 }
 
 .minecraft-info li i {
-    color: #f5a623;
+    color: #6b3e8f;
 }
 
 /* Стили для переключаемых разделов CatWar */
@@ -562,9 +653,9 @@ main {
 }
 
 .tab-btn {
-    background: rgba(249, 115, 22, 0.2);
-    border: 2px solid #f97316;
-    color: #9b4d96;
+    background: rgba(155, 77, 150, 0.15);
+    border: 2px solid #9b4d96;
+    color: #6b3e8f;
     padding: 0.8rem 2rem;
     border-radius: 50px;
     font-size: 1.1rem;
@@ -575,16 +666,16 @@ main {
 }
 
 .tab-btn:hover {
-    background: #f97316;
+    background: #9b4d96;
     color: white;
     transform: translateY(-2px);
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, #f5a623, #f97316);
+    background: linear-gradient(135deg, #6b3e8f, #9b4d96);
     color: white;
-    border-color: #f5a623;
-    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+    border-color: #9b4d96;
+    box-shadow: 0 4px 12px rgba(155, 77, 150, 0.4);
 }
 
 .section-content {
@@ -603,17 +694,30 @@ main {
 
 /* Подвал */
 footer {
-    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #9b4d96 100%);
+    background: linear-gradient(135deg, #4a2a6b 0%, #6b3e8f 50%, #9b4d96 100%);
     color: #fff;
     text-align: center;
     padding: 1.5rem;
     margin-top: 3rem;
+    position: relative;
+}
+
+footer::before {
+    content: '✦ ✦ ✦';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    opacity: 0.5;
 }
 
 .social-icons {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    margin-top: 0.5rem;
 }
 
 .social-link {
@@ -661,6 +765,12 @@ footer {
 }
 
 /* Адаптивность */
+@media (max-width: 992px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
@@ -687,10 +797,10 @@ footer {
     }
     
     .gallery {
-        grid-template-columns: 1fr;
+        column-count: 1;
     }
     
-  .card-image img {
+    .card-image img {
         height: auto;
         width: 100%;
     }
