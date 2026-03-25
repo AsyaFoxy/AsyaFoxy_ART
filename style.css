@@ -983,4 +983,79 @@ footer::before {
     .welcome-block p {
         font-size: 0.95rem;
     }
+    /* Блок арт-статус */
+.art-status {
+    text-align: center;
+}
+
+.art-status h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.art-status h3 i {
+    font-size: 1.4rem;
+    color: #f5a623;
+}
+
+.status-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.status-item {
+    background: linear-gradient(135deg, #faf5ff 0%, #f5eaff 100%);
+    padding: 0.8rem 1.2rem;
+    border-radius: 40px;
+    border: 1px solid #e9d4ff;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.status-item:hover {
+    transform: translateY(-2px);
+    border-color: #f97316;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);
+}
+
+.status-label {
+    font-weight: 600;
+    color: #6b3e8f;
+}
+
+.status-value {
+    color: #4a2a4a;
+}
+
+.status-value.open {
+    color: #4caf50;
+    font-weight: 500;
+}
+
+.status-value.closed {
+    color: #f44336;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .status-container {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .status-item {
+        justify-content: space-between;
+        width: 100%;
+    }
+}
 }
