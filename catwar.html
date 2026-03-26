@@ -28,12 +28,13 @@
     </header>
 
     <main>
-        <div class="section-tabs">
-            <button class="tab-btn active" data-tab="new">Новые модельки</button>
-            <button class="tab-btn" data-tab="old">Старые модельки</button>
+        <!-- Переключатель для костюмов и ботов -->
+        <div class="section-tabs main-tabs">
+            <button class="tab-btn active" data-tab="new">✨ Новые модельки</button>
+            <button class="tab-btn" data-tab="old">📜 Старые модельки</button>
         </div>
 
-        <!-- Новые модельки -->
+        <!-- Новые модельки (костюмы и боты) -->
         <div id="new" class="section-content active">
             <div class="category">
                 <h3>Костюмы</h3>
@@ -81,50 +82,28 @@
                     </div>
                 </div>
             </div>
-            <div class="category">
-                <h3>Предметы</h3>
-                <div class="gallery">
-                    <div class="card">
-                        <div class="card-image catwar-image" data-img="images/catwar_predmet_1.png">
-                            <img src="images/catwar_predmet_1.png" alt="CatWar Item 1">
-                            <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="category">
-                <h3>Медали</h3>
-                <div class="gallery">
-                    <div class="card">
-                        <div class="card-image catwar-image" data-img="images/catwar_medal_1.png">
-                            <img src="images/catwar_medal_1.png" alt="CatWar Medal 1">
-                            <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <!-- Старые модельки -->
+        <!-- Старые модельки (костюмы и боты) -->
         <div id="old" class="section-content">
             <div class="category">
                 <h3>Костюмы</h3>
                 <div class="gallery">
                     <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Player+1">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Player+1" alt="Old Player 1">
+                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Costume+1">
+                            <img src="https://via.placeholder.com/400x400?text=Old+Costume+1" alt="Old Costume 1">
                             <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Player+2">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Player+2" alt="Old Player 2">
+                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Costume+2">
+                            <img src="https://via.placeholder.com/400x400?text=Old+Costume+2" alt="Old Costume 2">
                             <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Player+3">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Player+3" alt="Old Player 3">
+                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Costume+3">
+                            <img src="https://via.placeholder.com/400x400?text=Old+Costume+3" alt="Old Costume 3">
                             <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
                         </div>
                     </div>
@@ -153,49 +132,34 @@
                     </div>
                 </div>
             </div>
-            <div class="category">
-                <h3>Предметы</h3>
-                <div class="gallery">
-                    <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Item+1">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Item+1" alt="Old Item 1">
-                            <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Item+2">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Item+2" alt="Old Item 2">
-                            <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Item+3">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Item+3" alt="Old Item 3">
-                            <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
-                        </div>
+        </div>
+
+        <!-- Предметы и медали (отдельный блок, не переключаемый) -->
+        <div class="separator">
+            <i class="fas fa-star"></i>
+            <span>Предметы и медали</span>
+            <i class="fas fa-star"></i>
+        </div>
+
+        <div class="category">
+            <h3>Предметы</h3>
+            <div class="gallery">
+                <div class="card">
+                    <div class="card-image catwar-image" data-img="images/catwar_predmet_1.png">
+                        <img src="images/catwar_predmet_1.png" alt="CatWar Item 1">
+                        <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
                 </div>
             </div>
-            <div class="category">
-                <h3>Медали</h3>
-                <div class="gallery">
-                    <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Medal+1">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Medal+1" alt="Old Medal 1">
-                            <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Medal+2">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Medal+2" alt="Old Medal 2">
-                            <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image catwar-image" data-img="https://via.placeholder.com/400x400?text=Old+Medal+3">
-                            <img src="https://via.placeholder.com/400x400?text=Old+Medal+3" alt="Old Medal 3">
-                            <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
-                        </div>
+        </div>
+
+        <div class="category">
+            <h3>Медали</h3>
+            <div class="gallery">
+                <div class="card">
+                    <div class="card-image catwar-image" data-img="images/catwar_medal_1.png">
+                        <img src="images/catwar_medal_1.png" alt="CatWar Medal 1">
+                        <div class="card-overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
                 </div>
             </div>
@@ -252,15 +216,26 @@
             });
             
             // Переключение вкладок CatWar
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const sections = { new: document.getElementById('new'), old: document.getElementById('old') };
+            const tabBtns = document.querySelectorAll('.main-tabs .tab-btn');
+            const sections = {
+                new: document.getElementById('new'),
+                old: document.getElementById('old')
+            };
+            
             tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const tabId = btn.getAttribute('data-tab');
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
                     tabBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    Object.values(sections).forEach(section => section.classList.remove('active'));
-                    if (sections[tabId]) sections[tabId].classList.add('active');
+                    this.classList.add('active');
+                    
+                    Object.values(sections).forEach(section => {
+                        if (section) section.classList.remove('active');
+                    });
+                    
+                    if (sections[tabId]) {
+                        sections[tabId].classList.add('active');
+                    }
                 });
             });
         });
